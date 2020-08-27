@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content%}
+{% load tweet_extras %}
+<p {% if tweet.important %} style='background-color:#90EE90' {% endif %}> {% add_italics_and_bold tweet.text tweet.get_most_frequent_letter %}</p>
+{% if tweet.urls.all %}
+<p> Originele links in volgorde van verschijnen:</p>
+<ul>
+    {% for url in tweet.urls.all %}
+    <li >{{ url.full_url }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<p> Meest voorkomende letter: {{ tweet.get_most_frequent_letter }}</p>
+
+<a href="{% url 'tweet-list'%}">Ga terug</a>
+{% endblock content %}

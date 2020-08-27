@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3> Tweets by Gaslicht_com</h3>
+<ul>
+{% for tweet in object_list %}
+    <li><a href="{% url 'tweet-detail' tweet.id %}" {% if tweet.important %} style='background-color:#90EE90' {% endif %}>{{ tweet.text}}</a></li>
+{% empty %}
+    <li> No tweets yet.</li>
+    <a href="{% url 'get_tweets' %}">
+        <button class="btn btn-primary">Get tweets</button>
+    </a>
+
+{% endfor %}
+</ul>
+
+<a href="{% url 'admin:index' %}">Admin page</a>
+{% endblock content %}
