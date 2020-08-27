@@ -1,4 +1,4 @@
-#Bencompare sollicitatie opdracht
+# Bencompare sollicitatie opdracht
 Willem Datema
 
 1. Install docker and docker-compose
